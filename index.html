@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b0e" />
+    <title>경북대미술관 행운의 룰렛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Inter:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="scene">
+      <div class="ambient ambient--left"></div>
+      <div class="ambient ambient--right"></div>
+      <button
+        class="utility-button settings-trigger"
+        id="settingsTrigger"
+        type="button"
+        aria-label="환경 설정"
+        title="환경 설정"
+      >
+        <span aria-hidden="true">⚙</span>
+      </button>
+      <button
+        class="utility-button fullscreen-trigger"
+        id="fullscreenToggle"
+        type="button"
+        aria-label="전체화면"
+        title="전체화면"
+      >
+        <span aria-hidden="true">⛶</span>
+      </button>
+
+      <div class="settings-modal" id="settingsModal" hidden>
+        <div class="settings-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+          <button class="settings-close" id="settingsClose" type="button" aria-label="닫기">×</button>
+          <div class="settings-gate" id="settingsGate">
+            <span class="settings-kicker">ADMIN ONLY</span>
+            <h2 id="settingsTitle">환경 설정</h2>
+            <p>비밀번호를 입력하세요</p>
+            <input
+              id="settingsPassword"
+              type="password"
+              inputmode="numeric"
+              maxlength="3"
+              autocomplete="off"
+              aria-label="환경 설정 비밀번호"
+            />
+            <button class="settings-unlock" id="settingsUnlock" type="button">확인</button>
+          </div>
+          <div class="settings-controls" id="settingsControls" hidden>
+            <span class="settings-kicker">ADMIN MENU</span>
+            <h2>환경 설정</h2>
+            <div class="settings-actions">
+              <button class="settings-action jackpot-test" id="jackpotTest" type="button">
+                <span>★</span> 잭팟 확인
+              </button>
+            </div>
+          </div>
+          <small class="settings-error" id="settingsError" aria-live="polite"></small>
+        </div>
+      </div>
+
+      <section class="machine" aria-label="경북대미술관 행운의 룰렛">
+        <div class="machine__top">
+          <span class="bolt bolt--tl"></span>
+          <span class="bolt bolt--tr"></span>
+          <div class="brand">
+            <h1>경북대미술관 <em>행운의 룰렛</em></h1>
+            <p>&lt;표준 사용법&gt; 전시 진행 중</p>
+          </div>
+          <div class="status-light" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+        </div>
+
+        <div class="machine__body">
+          <span class="bolt bolt--body-tl"></span>
+          <span class="bolt bolt--body-bl"></span>
+
+          <div class="play-area">
+            <div class="reel-case">
+              <div class="reel-case__shine"></div>
+              <div class="reels" id="reels" aria-label="슬롯 결과">
+                <div class="reel-window">
+                  <div class="reel" data-reel="0"></div>
+                </div>
+                <div class="reel-window">
+                  <div class="reel" data-reel="1"></div>
+                </div>
+                <div class="reel-window">
+                  <div class="reel" data-reel="2"></div>
+                </div>
+                <div class="payline payline--top"></div>
+                <div class="payline payline--bottom"></div>
+              </div>
+            </div>
+
+            <div class="message" id="message">
+              <span class="message__dot"></span>
+              <p>레버를 당겨 행운을 시험하세요</p>
+              <span class="message__dot"></span>
+            </div>
+          </div>
+
+          <aside class="lever-panel">
+            <div class="lever-track" id="leverTrack">
+              <div class="lever-rail"></div>
+              <button
+                class="lever"
+                id="lever"
+                type="button"
+                aria-label="레버를 당겨 슬롯머신 돌리기"
+              >
+                <span class="lever__knob"><i></i></span>
+                <span class="lever__shaft"></span>
+                <span class="lever__joint"></span>
+              </button>
+            </div>
+          </aside>
+        </div>
+
+        <div class="machine__base"></div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
